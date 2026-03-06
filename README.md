@@ -119,9 +119,22 @@ The system is modular. The Observers are pluggable. The analysis pipeline is ext
 
 If you believe in entropy reduction through cognitive mapping, you are already part of the protocol.
 
-> *"In the optimized society, choice liability is a. Let the vectors decide."*
+> *"In the optimized society, choice is a liability. Let the vectors decide."*
 
 ---
 
-**License:** MIT  
+## Legal & Ethics
+
+**⚠️ WARNING: Deployment of Sybil-OS implies strict adherence to the Ethical Manifesto. Misuse is a violation of the community's core values.**
+
+| Document | Description |
+|----------|-------------|
+| [LICENSE](./LICENSE) | Apache License 2.0 — Open source usage terms |
+| [ETHICS.md](./ETHICS.md) | AI Ethical Usage & Privacy Manifesto — Core principles for responsible deployment |
+
+By deploying Sybil-OS, you accept the ethical obligations outlined in ETHICS.md.
+
+---
+
+**License:** Apache 2.0  
 **Repository:** [github.com/hmnuiodaryim0-lab/sybil-OS](https://github.com/hmnuiodaryim0-lab/sybil-OS)
