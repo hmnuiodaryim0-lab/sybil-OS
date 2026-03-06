@@ -10,6 +10,8 @@ from sqlalchemy.orm import Session
 
 from sybil_os.database.connection import get_db, init_db
 from sybil_os.models.persona import HumanCognitiveProfile
+from sybil_os.api.router import router
+from sybil_os.core.observer_registry import registry, create_observer, ObserverType, ObserverConfig
 
 
 app = FastAPI(
@@ -18,11 +20,26 @@ app = FastAPI(
     version="0.1.0"
 )
 
+# Include v1 router
+app.include_router(router)
+
 
 # Initialize database on startup
 @app.on_event("startup")
 def startup_event():
     init_db()
+    
+    # Register default observers
+    camera_obs = create_observer(ObserverType.CAMERA, "default_camera")
+    screen_obs = create_observer(ObserverType.SCREEN, "default_screen")
+    chat_obs = create_observer(ObserverType.CHAT, "default_chat")
+    
+    if camera_obs:
+        registry.register(camera_obs)
+    if screen_obs:
+        registry.register(screen_obs)
+    if chat_obs:
+        registry.register(chat_obs)
 
 
 # Pydantic schemas for API requests/responses
