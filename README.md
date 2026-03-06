@@ -90,6 +90,59 @@ POST /v1/perceive
 
 ---
 
+## Quick Start
+
+### Prerequisites
+- Python 3.10+
+- PostgreSQL 15+ with pgvector extension
+- (Optional) Docker & Docker Compose
+
+### Option 1: Local Installation
+
+```bash
+# 1. Clone
+git clone https://github.com/hmnuiodaryim0-lab/sybil-OS.git
+cd sybil-OS
+
+# 2. Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate   # Windows
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Configure environment
+cp .env.example .env
+# Edit .env with your API keys
+
+# 5. Set up database
+psql -f database/schema.sql
+
+# 6. Run
+uvicorn api.main:app --reload
+# API available at http://localhost:8000
+```
+
+### Option 2: Docker
+
+```bash
+# Start PostgreSQL + pgvector
+docker-compose up -d db
+
+# Run API
+uvicorn api.main:app --reload
+```
+
+### Verify Installation
+
+```bash
+curl http://localhost:8000/health
+# {"status": "healthy", "timestamp": "..."}
+```
+
+---
+
 ## Installation
 
 ```bash
